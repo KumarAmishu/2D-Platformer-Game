@@ -2,11 +2,11 @@ using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 
 public class PlayerController : MonoBehaviour
 {
-    
+  public ScoreController scoreController; 
   public float speed;
 
   public float jump;
@@ -18,8 +18,14 @@ public class PlayerController : MonoBehaviour
     Debug.Log("Player controller awake");
     rb2d = gameObject.GetComponent<Rigidbody2D>();
   }
- 
-  private void Update()
+
+    public void PickUpKey()
+    {
+        Debug.Log("Player picked up the key");
+        scoreController.IncreaseScore(10);
+    }
+
+    private void Update()
 
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
