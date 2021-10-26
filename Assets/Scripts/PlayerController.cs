@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour
     rb2d = gameObject.GetComponent<Rigidbody2D>();
   }
 
+    public void KillPlayer()
+    {
+        Debug.Log("Player killed by the enemy");
+        Destroy(gameObject);
+    }
+
     public void PickUpKey()
     {
         Debug.Log("Player picked up the key");
