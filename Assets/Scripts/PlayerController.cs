@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,7 +23,13 @@ public class PlayerController : MonoBehaviour
     public void KillPlayer()
     {
         Debug.Log("Player killed by the enemy");
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        ReloadLevel();
+    }
+
+    private void ReloadLevel()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void PickUpKey()
