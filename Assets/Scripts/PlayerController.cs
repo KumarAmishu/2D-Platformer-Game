@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
   public ScoreController scoreController; 
+  public GameOverController gameOverController;
   public float speed;
 
   public float jump;
@@ -24,13 +25,12 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player killed by the enemy");
         // Destroy(gameObject);
-        ReloadLevel();
+        gameOverController.PlayerDied();
+        this.enabled = false;
+        
     }
 
-    private void ReloadLevel()
-    {
-        SceneManager.LoadScene(0);
-    }
+    
 
     public void PickUpKey()
     {
